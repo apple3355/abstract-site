@@ -1,11 +1,11 @@
 const { Site, Board, Article, Comment } = require('.');
 
-describe('Site 요구사항 테스트', () => {
+describe('Site 요구사항 테스트', () => { // test를 그룹화
     test('Site는 n개 이상 생성 할 수 있다.', () => {
         expect(() => {
             const _site1 = new Site();
             const _site2 = new Site();
-        }).not.toThrow();
+        }).not.toThrow(); // toThrow() 예외발생 여부 테스트
     });
 
     test('Site에는 Board를 추가하고 추가된 Board를 조회할 수 있다.', () => {
@@ -14,7 +14,7 @@ describe('Site 요구사항 테스트', () => {
 
         mySite.addBoard(noticeBoard);
 
-        expect(mySite.findBoardByName('공지사항')).toEqual(noticeBoard);
+        expect(mySite.findBoardByName('공지사항')).toEqual(noticeBoard); // toEqual은 배열이나 객체 내부까지 깊은 비교
     });
 
     test('하나의 Site에 동일한 이름의 Board를 추가할 수 없다.', () => {
@@ -49,7 +49,7 @@ describe('Board 요구사항 테스트', () => {
      */
     let mySite;
 
-    beforeEach(() => {
+    beforeEach(() => { // test()가 실행될 때마다 실행해주는 전처리기  *afterEach는 test()가 종료될 때마다 실행하는 후처리기
         // NOTE: Reset `mySite`
         mySite = new Site();
     });
